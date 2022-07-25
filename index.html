@@ -13,7 +13,7 @@
     <a href="#" id="getcertificate">get certificate</a><br/><br/>
     <button onclick="html5QrcodeScanner.render(onScanSuccess)">verify certificate</button>
     <div id="reader"></div>
-    <h3 id="results"></h3>
+    <h3 id="result"></h3>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.2.1/html5-qrcode.min.js" integrity="sha512-cuVnjPNH3GyigomLiyATgpCoCmR9T3kwjf94p0BnSfdtHClzr1kyaMHhUmadydjxzi1pwlXjM5sEWy4Cd4WScA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         document.querySelector("#getcertificate").addEventListener("click",function(){
@@ -25,7 +25,7 @@
     this.href=`certificate.html?`+s
 })
 var html5QrcodeScanner = new Html5QrcodeScanner(
-    "reader", { fps: 10, qrbox: 250 });
+    "reader", { fps: 10, qrbox: {width:250,height:250} });
         
 function onScanSuccess(decodedText, decodedResult) {
     document.querySelector("#result").innerText=`Scan result: ${decodedText}`;
